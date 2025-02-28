@@ -1,0 +1,67 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentación API Media Scraper</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .endpoint { background: #f5f5f5; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        code { background: #eee; padding: 2px 5px; }
+        pre { background: #333; color: #fff; padding: 15px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Documentación de la API Media Scraper</h1>
+    
+    <div class="endpoint">
+        <h2>TikTok Video Info (GET /api/ttdl)</h2>
+        <p>Ejemplo: <code>/api/ttdl?url=https://vt.tiktok.com/xxxx</code></p>
+        <pre>{
+  "title": "Video title",
+  "author": "Author name",
+  "video": "direct_video_url",
+  // ... otros campos
+}</pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>YouTube MP3 (GET /api/ytmp3)</h2>
+        <p>Ejemplo: <code>/api/ytmp3?url=https://youtube.com/watch?v=XXXX</code></p>
+    </div>
+
+    <div class="endpoint">
+        <h2>YouTube MP4 (GET /api/ytmp4)</h2>
+        <p>Ejemplo: <code>/api/ytmp4?url=https://youtube.com/watch?v=XXXX</code></p>
+    </div>
+
+    <div class="endpoint">
+        <h2>Instagram Download (GET /api/igdl)</h2>
+        <p>Ejemplo: <code>/api/igdl?url=https://instagram.com/p/XXXX</code></p>
+    </div>
+
+    <div class="endpoint">
+        <h2>Facebook Download (GET /api/fbdl)</h2>
+        <p>Ejemplo: <code>/api/fbdl?url=https://facebook.com/XXXX</code></p>
+    </div>
+
+    <div class="endpoint">
+        <h2>YouTube Search (GET /api/ytsearch)</h2>
+        <p>Ejemplo: <code>/api/ytsearch?query=nombre+canción</code></p>
+    </div>
+
+    <h3>Uso básico con JavaScript:</h3>
+    <pre>
+fetch('/api/ttdl?url=TU_URL')
+  .then(response => response.json())
+  .then(data => console.log(data));
+    </pre>
+
+    <h3>Limitaciones:</h3>
+    <ul>
+        <li>Límite de 100 solicitudes cada 15 minutos</li>
+        <li>Solo métodos GET</li>
+        <li>Debe incluir el parámetro URL en la consulta</li>
+    </ul>
+</body>
+</html>
